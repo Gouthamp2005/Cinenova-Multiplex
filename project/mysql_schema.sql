@@ -6,12 +6,7 @@
 -- Charset: utf8mb4
 -- ============================================================
 
-CREATE DATABASE IF NOT EXISTS cinenova_multiplex
-  CHARACTER SET utf8mb4
-  COLLATE utf8mb4_unicode_ci;
-
-USE cinenova_multiplex;
-
+USE railway;
 -- ============================================================
 -- Table: users (for Spring Boot / custom auth)
 -- ============================================================

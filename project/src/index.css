@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body { @apply bg-neutral-950 text-neutral-100 antialiased; }
+  * { scrollbar-width: thin; scrollbar-color: #404040 transparent; }
+  *::-webkit-scrollbar { width: 6px; height: 6px; }
+  *::-webkit-scrollbar-thumb { @apply bg-neutral-700 rounded-full; }
+}

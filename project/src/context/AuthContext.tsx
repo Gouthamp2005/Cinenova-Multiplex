@@ -29,7 +29,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
       return;
     }
     api
-      .get<{ user: Profile }>("/auth/me")
+      .get<{ user: Profile }>("/api/auth/me")
       .then(({ user }) => {
         setProfile(user);
         setSession({ user: { id: user.id, email: user.email } });
@@ -41,7 +41,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   const signIn = async (email: string, password: string) => {
-    const { token, user } = await api.post<{ token: string; user: Profile }>("/auth/login", {
+    const { token, user } = await api.post<{ token: string; user: Profile }>("/api/auth/login", {
       email,
       password,
     });
@@ -51,7 +51,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const signUp = async (email: string, password: string, fullName: string, phone: string) => {
-    const { token, user } = await api.post<{ token: string; user: Profile }>("/auth/register", {
+    const { token, user } = await api.post<{ token: string; user: Profile }>("/api/auth/register", {
       email,
       password,
       full_name: fullName,

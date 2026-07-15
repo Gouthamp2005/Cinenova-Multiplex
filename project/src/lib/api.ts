@@ -1,4 +1,4 @@
-const API_URL = import.meta.env.VITE_API_URL || "https://cinenova-backend-nwwv.onrender.com";
+const API_URL = import.meta.env.VITE_API_URL || "https://cinenova-backend-nwwv.onrender.com/api";
 const TOKEN_KEY = "cinenova_token";
 
 export function getToken(): string | null {

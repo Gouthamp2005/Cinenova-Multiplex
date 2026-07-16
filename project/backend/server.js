@@ -15,40 +15,14 @@ const bookingRoutes = require("./routes/bookings");
 
 const app = express();
 const PORT = process.env.PORT || 8080;
-
-const allowedOrigins = (process.env.CORS_ORIGIN || "http://localhost:5173")
-  .split(",")
-  .map((o) => o.trim());
-
 app.use(
   cors({
-    origin: function (origin, callback) {
-      // Allow requests with no Origin (e.g., Postman, health checks)
-      if (!origin) return callback(null, true);
-
-     console.log("Origin:", origin);
-console.log("Allowed Origins:", allowedOrigins);
-
-if (allowedOrigins.includes(origin)) {
-  return callback(null, true);
-}
-
-return callback(new Error("Not allowed by CORS"));
-    },
+    origin: true,
     credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
-    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
-app.options("*", cors());
-
-app.options("*", cors());
-
-app.options("*", cors());
-
 // Handle preflight requests
-app.options("*", cors());
 app.use(express.json());
 
 app.get("/api/health", (req, res) => res.json({ status: "ok" }));

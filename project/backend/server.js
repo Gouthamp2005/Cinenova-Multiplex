@@ -26,11 +26,14 @@ app.use(
       // Allow requests with no Origin (e.g., Postman, health checks)
       if (!origin) return callback(null, true);
 
-      if (allowedOrigins.includes(origin)) {
-        return callback(null, true);
-      }
+     console.log("Origin:", origin);
+console.log("Allowed Origins:", allowedOrigins);
 
-      return callback(new Error("Not allowed by CORS"));
+if (allowedOrigins.includes(origin)) {
+  return callback(null, true);
+}
+
+return callback(new Error("Not allowed by CORS"));
     },
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],

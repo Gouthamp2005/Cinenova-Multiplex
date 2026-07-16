@@ -16,18 +16,19 @@ const bookingRoutes = require("./routes/bookings");
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-const allowedOrigins = (process.env.CORS_ORIGIN || "http://localhost:5173")
-  .split(",")
-  .map((o) => o.trim());
-
 app.use(
   cors({
-    origin: process.env.CORS_ORIGIN,
+    origin: [
+      "http://localhost:5173",
+      "https://cinenova-multiplex.vercel.app",
+    ],
     credentials: true,
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
     allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
+
+app.options("*", cors());
 
 app.options("*", cors());
 
